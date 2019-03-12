@@ -53,30 +53,6 @@ function repeat(){
 
 }
 
-//multiple controls
-const $barrage=$('#barrage');
-const $barrOpt=$('#barrOpt');
-const $arrUp=$('#arrUp');
-const $arrDwn=$('#arrDwn');
-const $msg=$('#msg');
-const $msg2=$('#msg2');
-const $msg3=$('#msg3');
-const $msg4=$('#msg4');
-const $singleGen=$('#singleGen');
-
-$barrage.on('click', () => {
-  $msg3.fadeToggle('hidden'),100;
-  $singleGen.slideToggle('hidden');
-  msg2.innerHTML='';
-  msg.innerHTML='I challenge you to a duel... of words';
-  $arrUp.toggleClass('hidden');
-  $arrDwn.toggleClass('hidden');
-  $barrOpt.slideToggle('hidden'),1000;
-  $('html').animate({scrollTop: 80 }, 1300);
-  $msg2.toggle();
-  $barrage.toggleClass('grey')
-})
-
 
 //triggers
 hit.addEventListener('click', function(){
@@ -93,7 +69,3 @@ hit.addEventListener('click', function(){
   typing();
 })
 
-go.addEventListener('click', function(){
-  msg2.innerHTML='';
-  repeat()
-})
