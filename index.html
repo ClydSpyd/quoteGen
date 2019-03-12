@@ -8,35 +8,39 @@
 </head>
 <body>
     <!--<h5>The bard is not amused</h5>-->
-<div id="principal">
-    <img id='shake'src="img/shake.jpg" alt="" srcset="">
-    <div id='singleGen'>
-    <h1 id="msg" class='insult'></h1>
-    <input type='button' value='unleash wrath' id='hit'>
-    </div>
-    <h1 id='msg3' class='hidden'>Glutton for punishment, ey?</h1>
-    <h4 id='barrage'>Quick fire<i id='arrDwn'class="fa fa-caret-down"></i><i id='arrUp'class="hidden fa fa-caret-up"></i></h4>
-</div>
 
-<div id='barrOpt'class='hidden'>
-    <p>How many rounds shall we go?</p>
-    <fieldset>
-        <label for="one">1</label>
-        <input class='radio' type="radio" name="howMany" id="one" value="1" checked='checked' />
-        <label for="two">2</label>
-        <input class='radio' type="radio" name="howMany" id="two" value="2" />
-        <label for="one">3</label>
-        <input class='radio' type="radio" name="howMany" id="three" value="3" />
-        <label for="two">4</label>
-        <input class='radio' type="radio" name="howMany" id="four" value="4" />
-        <label for="two">5</label>
-        <input class='radio' type="radio" name="howMany" id="five" value="5" />
-    </fieldset>
-    <input type="button" name="go" id="go" value="unleash wrath" />
+    <img id='shake'src="img/shake.jpg" alt="" srcset="">
+<div id="principal">
+        <h1 id="msg" class='insult'></h1>
+        <input type='button' value='unleash wrath' id='hit'>
+</div>
+<div id="multiple">
+    
+        
+        <h4 id='barrage'>Quick fire<i id='arrDwn'class="fa fa-caret-down"></i><i id='arrUp'class="hidden fa fa-caret-up"></i></h4>
+    <h1 id='msg3' class='hidden'>Glutton for punishment, ey?</h1>
+    
+    <div id='barrOpt'class='hidden'>
+        <p>How much wrath dost thou desire?</p>
+        <fieldset>
+            <label for="one">1</label>
+            <input class='radio' type="radio" name="howMany" id="one" value="1" checked='checked' />
+            <label for="two">2</label>
+            <input class='radio' type="radio" name="howMany" id="two" value="2" />
+            <label for="one">3</label>
+            <input class='radio' type="radio" name="howMany" id="three" value="3" />
+            <label for="two">4</label>
+            <input class='radio' type="radio" name="howMany" id="four" value="4" />
+            <label for="two">5</label>
+            <input class='radio' type="radio" name="howMany" id="five" value="5" />
+        </fieldset>
+        <input type="button" name="go" id="go" value="unleash wrath" />
+    </div>
 </div>
 
 <div id=multipleResults>
-<h2 id='msg2' class='hidden insult'></h2>       
+<h2 id='msg2' class='hidden insult'></h2>  
+<input type="button" name="go" id="goMore" value="more" class='hidden'/>     
 </div>
 
 
@@ -82,19 +86,19 @@
 
     //multiple generator
     var counter = 0;
-
+    var y = $('body').scrollTop();
     function repeat() {
 
         var howMany = document.querySelector('input[name="howMany"]:checked').value;
         if (counter < howMany) {
             document.getElementById('msg2').innerHTML += '<br>' + generate() + '<br>';
             counter++;
-            $('html,body').animate({ scrollTop: 400 }, 1000);
+            $('html, body').animate({scrollTop: ($(window).scrollTop() + 60) + 'px'}, 600);
             setTimeout(repeat, 1500);
         } else {
             counter = 0;
-            document.getElementById('msg2').innerHTML += '<br>' + 'Have you had enough?? <br>'
-            $('html,body').animate({ scrollTop: 400 }, 1000);
+            document.getElementById('msg2').innerHTML += '<br>' + '<h6 class="grey">Now be gone with you</h6> <br>'
+            $('html, body').animate({scrollTop: ($(window).scrollTop() +120) + 'px'}, 600);
             return
         }
 
@@ -110,20 +114,23 @@
     const $msg2 = $('#msg2');
     const $msg3 = $('#msg3');
     const $msg4 = $('#msg4');
-    const $singleGen = $('#singleGen');
     const $hit = $('#hit');
+    const $principal = $('#principal');
 
     $barrage.on('click', () => {
-        $msg3.fadeToggle('hidden'), 100;
-        $singleGen.slideToggle('hidden');
+        $principal.css('min-height',0).slideToggle(600);
+        /*$msg.slideToggle(500);*/
+        //$hit.fadeToggle(500);
+        $msg3.fadeToggle(500);
         msg2.innerHTML = '';
         msg.innerHTML = 'The Angry Bard hath had enough of your shit...';
         $arrUp.toggleClass('hidden');
         $arrDwn.toggleClass('hidden');
-        $barrOpt.slideToggle('hidden'), 1000;
-        $('html').animate({ scrollTop: 80 }, 1300);
-        $msg2.toggle();
-        $barrage.toggleClass('grey')
+        $barrOpt.fadeToggle(500);   
+        $('html,body').animate({ scrollTop: 60 }, 1500);     
+       // $('html').scrollTop(20,0),1000;
+        $msg2.fadeToggle();
+        $barrage.toggleClass('grey');
     })
 
 
@@ -141,15 +148,22 @@
             }
         }
         typing();
-        $hit.fadeToggle(500).delay(2000).fadeToggle(1500);
+        $hit.fadeToggle(500).delay(3000).fadeToggle(1000);
         function change(){ hit.value = 'again'}
         setTimeout(change,1000)
     })
 
     go.addEventListener('click', function () {
         msg2.innerHTML = '';
-        repeat()
+        repeat();
+        /*function show(){
+            $more= $('#goMore');
+            $more.fadeToggle('hidden');
+        }
+        setTimeout(show, 3500);
+        $('html').animate({ scrollTop: 180 }, 800);*/
     })
+ 
 </script>  
 </body>
 </html>
