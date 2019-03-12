@@ -109,6 +109,7 @@
     const $msg3 = $('#msg3');
     const $msg4 = $('#msg4');
     const $singleGen = $('#singleGen');
+    const $hit = $('#hit');
 
     $barrage.on('click', () => {
         $msg3.fadeToggle('hidden'), 100;
@@ -126,6 +127,7 @@
 
     //triggers
     hit.addEventListener('click', function () {
+        
         output = generate();
         var i = 0, text;
 
@@ -137,6 +139,9 @@
             }
         }
         typing();
+        $hit.fadeToggle(500).delay(2000).fadeToggle(1500);
+        function change(){ hit.value = 'again'}
+        setTimeout(change,1000)
     })
 
     go.addEventListener('click', function () {
