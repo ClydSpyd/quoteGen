@@ -8,13 +8,15 @@
 </head>
 <body>
     <!--<h5>The bard is not amused</h5>-->
-<img src="img/shake.jpg" alt="" srcset="">
-<div id='singleGen'>
+<div id="principal">
+    <img id='shake'src="img/shake.jpg" alt="" srcset="">
+    <div id='singleGen'>
     <h1 id="msg" class='insult'></h1>
-    <input type='button' value='commence' id='hit'>
+    <input type='button' value='unleash wrath' id='hit'>
+    </div>
+    <h1 id='msg3' class='hidden'>Glutton for punishment, ey?</h1>
+    <h4 id='barrage'>Quick fire<i id='arrDwn'class="fa fa-caret-down"></i><i id='arrUp'class="hidden fa fa-caret-up"></i></h4>
 </div>
-<h1 id='msg3' class='hidden'>Glutton for punishment, ey?</h1>
-<h4 id='barrage'>Quick fire<i id='arrDwn'class="fa fa-caret-down"></i><i id='arrUp'class="hidden fa fa-caret-up"></i></h4>
 
 <div id='barrOpt'class='hidden'>
     <p>How many rounds shall we go?</p>
@@ -30,7 +32,7 @@
         <label for="two">5</label>
         <input class='radio' type="radio" name="howMany" id="five" value="5" />
     </fieldset>
-    <input type="button" name="go" id="go" value="commence" />
+    <input type="button" name="go" id="go" value="unleash wrath" />
 </div>
 
 <div id=multipleResults>
@@ -54,7 +56,7 @@
     var hit = document.getElementById('hit');
     var go = document.getElementById('go');
 
-    msg.innerHTML = 'The Angry Bard speaks...'
+    msg.innerHTML = 'The Angry Bard hath had enough of your shit...'
 
 
     //single generator
@@ -115,7 +117,7 @@
         $msg3.fadeToggle('hidden'), 100;
         $singleGen.slideToggle('hidden');
         msg2.innerHTML = '';
-        msg.innerHTML = 'The Angry Bard speaks...';
+        msg.innerHTML = 'The Angry Bard hath had enough of your shit...';
         $arrUp.toggleClass('hidden');
         $arrDwn.toggleClass('hidden');
         $barrOpt.slideToggle('hidden'), 1000;
