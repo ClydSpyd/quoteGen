@@ -7,14 +7,16 @@
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 </head>
 <body>
-    <h5>The bard is not amused</h5>
-<img src="img/shake.jpg" alt="" srcset="">
-<div id='singleGen'>
+    <!--<h5>The bard is not amused</h5>-->
+<div id="principal">
+    <img id='shake'src="img/shake.jpg" alt="" srcset="">
+    <div id='singleGen'>
     <h1 id="msg" class='insult'></h1>
-    <input type='button' value='commence' id='hit'>
+    <input type='button' value='unleash wrath' id='hit'>
+    </div>
+    <h1 id='msg3' class='hidden'>Glutton for punishment, ey?</h1>
+    <h4 id='barrage'>Quick fire<i id='arrDwn'class="fa fa-caret-down"></i><i id='arrUp'class="hidden fa fa-caret-up"></i></h4>
 </div>
-<h1 id='msg3' class='hidden'>Glutton for punishment, ey?</h1>
-<h4 id='barrage'>Quick fire<i id='arrDwn'class="fa fa-caret-down"></i><i id='arrUp'class="hidden fa fa-caret-up"></i></h4>
 
 <div id='barrOpt'class='hidden'>
     <p>How many rounds shall we go?</p>
@@ -30,7 +32,7 @@
         <label for="two">5</label>
         <input class='radio' type="radio" name="howMany" id="five" value="5" />
     </fieldset>
-    <input type="button" name="go" id="go" value="commence" />
+    <input type="button" name="go" id="go" value="unleash wrath" />
 </div>
 
 <div id=multipleResults>
@@ -54,7 +56,7 @@
     var hit = document.getElementById('hit');
     var go = document.getElementById('go');
 
-    msg.innerHTML = 'Prepare to feel my wrath'
+    msg.innerHTML = 'The Angry Bard hath had enough of your shit...'
 
 
     //single generator
@@ -109,12 +111,13 @@
     const $msg3 = $('#msg3');
     const $msg4 = $('#msg4');
     const $singleGen = $('#singleGen');
+    const $hit = $('#hit');
 
     $barrage.on('click', () => {
         $msg3.fadeToggle('hidden'), 100;
         $singleGen.slideToggle('hidden');
         msg2.innerHTML = '';
-        msg.innerHTML = 'Prepare to feel my wrath';
+        msg.innerHTML = 'The Angry Bard hath had enough of your shit...';
         $arrUp.toggleClass('hidden');
         $arrDwn.toggleClass('hidden');
         $barrOpt.slideToggle('hidden'), 1000;
@@ -126,6 +129,7 @@
 
     //triggers
     hit.addEventListener('click', function () {
+        
         output = generate();
         var i = 0, text;
 
@@ -137,6 +141,9 @@
             }
         }
         typing();
+        $hit.fadeToggle(500).delay(2000).fadeToggle(1500);
+        function change(){ hit.value = 'again'}
+        setTimeout(change,1000)
     })
 
     go.addEventListener('click', function () {
