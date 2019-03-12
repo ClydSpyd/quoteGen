@@ -11,7 +11,7 @@
 <img src="img/shake.jpg" alt="" srcset="">
 <div id='singleGen'>
     <h1 id="msg" class='insult'></h1>
-    <input type='button' value='do your worst' id='hit'>
+    <input type='button' value='commence' id='hit'>
 </div>
 <h1 id='msg3' class='hidden'>Glutton for punishment, ey?</h1>
 <h4 id='barrage'>Quick fire<i id='arrDwn'class="fa fa-caret-down"></i><i id='arrUp'class="hidden fa fa-caret-up"></i></h4>
@@ -30,7 +30,7 @@
         <label for="two">5</label>
         <input class='radio' type="radio" name="howMany" id="five" value="5" />
     </fieldset>
-    <input type="button" name="go" id="go" value="do your worst" />
+    <input type="button" name="go" id="go" value="commence" />
 </div>
 
 <div id=multipleResults>
@@ -56,7 +56,7 @@ crossorigin="anonymous"></script>
     var hit = document.getElementById('hit');
     var go = document.getElementById('go');
 
-    msg.innerHTML = 'I challenge you to a duel... of words'
+    msg.innerHTML = 'Prepare to feel my wrath'
 
 
     //single generator
@@ -116,7 +116,7 @@ crossorigin="anonymous"></script>
         $msg3.fadeToggle('hidden'), 100;
         $singleGen.slideToggle('hidden');
         msg2.innerHTML = '';
-        msg.innerHTML = 'I challenge you to a duel... of words';
+        msg.innerHTML = 'Prepare to feel my wrath';
         $arrUp.toggleClass('hidden');
         $arrDwn.toggleClass('hidden');
         $barrOpt.slideToggle('hidden'), 1000;
