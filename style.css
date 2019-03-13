@@ -21,8 +21,15 @@ h3{
 h4{
     margin:0;
 }
+h6{
+  margin:20px;
+}
 input{
   cursor: pointer;
+  border-radius: 5px;
+}
+fieldset{
+  border-radius: 5px;
 }
 #hit{
     margin:10px 0px 10px 0px;

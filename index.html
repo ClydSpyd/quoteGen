@@ -23,10 +23,8 @@
     <div id='barrOpt'class='hidden'>
         <p>How much wrath dost thou desire?</p>
         <fieldset>
-            <label for="one">1</label>
-            <input class='radio' type="radio" name="howMany" id="one" value="1" checked='checked' />
             <label for="two">2</label>
-            <input class='radio' type="radio" name="howMany" id="two" value="2" />
+            <input class='radio' type="radio" name="howMany" id="two" value="2" checked='checked'/>
             <label for="one">3</label>
             <input class='radio' type="radio" name="howMany" id="three" value="3" />
             <label for="two">4</label>
@@ -39,7 +37,8 @@
 </div>
 
 <div id=multipleResults>
-<h2 id='msg2' class='hidden insult'></h2>  
+<h2 id='msg2' class='hidden insult'></h2> 
+<h5 id='MT' class='grey'></h5> 
 <input type="button" name="go" id="goMore" value="more" class='hidden'/>     
 </div>
 
@@ -59,6 +58,8 @@
     var msg = document.getElementById('msg');
     var hit = document.getElementById('hit');
     var go = document.getElementById('go');
+
+    var y = window.scrollY
 
     msg.innerHTML = 'The Angry Bard hath had enough of your shit...'
 
@@ -80,25 +81,26 @@
         }
         msg.innerHTML = '';
         var output = start[numStar] + article + adj[numAdj] + ' ' + n1[numN1] + plus[numPlus] + n2[numN2] + '.';
+        console.log(y);
         return output;
     }
 
 
     //multiple generator
     var counter = 0;
-    var y = $('body').scrollTop();
+   
     function repeat() {
 
         var howMany = document.querySelector('input[name="howMany"]:checked').value;
         if (counter < howMany) {
             document.getElementById('msg2').innerHTML += '<br>' + generate() + '<br>';
             counter++;
-            $('html, body').animate({scrollTop: ($(window).scrollTop() + 60) + 'px'}, 600);
+            $('html, body').animate({scrollTop: ($(window).scrollTop() + 80) + 'px'}, 600);
             setTimeout(repeat, 1500);
         } else {
             counter = 0;
             document.getElementById('msg2').innerHTML += '<br>' + '<h6 class="grey">Now be gone with you</h6> <br>'
-            $('html, body').animate({scrollTop: ($(window).scrollTop() +120) + 'px'}, 600);
+            $('html, body').animate({scrollTop: ($(window).scrollTop() +90) + 'px'}, 600);
             return
         }
 
@@ -116,6 +118,7 @@
     const $msg4 = $('#msg4');
     const $hit = $('#hit');
     const $principal = $('#principal');
+    const $MT = $('#MT');
 
     $barrage.on('click', () => {
         
@@ -136,6 +139,7 @@
         } else if ($msg2.hasClass('hidden')===true){ 
             $('html, body').animate({scrollTop: ($(window).scrollTop() - 480) + 'px'}, 1000);
             console.log('boom');
+            setTimeout(clear,1000);
         } else {
             $('html, body').animate({scrollTop: ($(window).scrollTop() - 60) + 'px'}, 500);
             console.log('boob');
@@ -144,10 +148,13 @@
 
 
     //triggers
+    function clear(){msg2.innerHTML = ''};
+
     hit.addEventListener('click', function () {
-        
         output = generate();
         var i = 0, text;
+
+
 
         function typing() {
             if (i < output.length) {
@@ -163,14 +170,19 @@
     })
 
     go.addEventListener('click', function () {
+        $MT.toggleClass('grey');
+        if (msg2.innerHTML!==''){ 
+        console.log('booya')           
+        $('html, body').stop().animate({scrollTop:100}, 700);
+        setTimeout(clear,500);
+        setTimeout(repeat, 600);
+        }else{
+        
         msg2.innerHTML = '';
+        console.log('shabooya');
         repeat();
-        /*function show(){
-            $more= $('#goMore');
-            $more.fadeToggle('hidden');
         }
-        setTimeout(show, 3500);
-        $('html').animate({ scrollTop: 180 }, 800);*/
+        
     })
  
 </script>  
