@@ -8,7 +8,9 @@
 </head>
 <body>
     <!--<h5>The bard is not amused</h5>-->
-
+<section id="top">
+    <p></p>
+</section>
     <img id='shake'src="img/shake.jpg" alt="" srcset="">
 <div id="principal">
         <h1 id="msg" class='insult'></h1>
@@ -50,9 +52,9 @@
 <script>
 
     var start = ['You, my good sir, are ', 'You, my dear, are ', 'This man is ', 'Your mother is ', 'You strike me as '];
-    var adj = ['ill-breeding', 'villainous', 'knicker-stealing', 'horse-bothering', 'blithering', 'cow-handed'];
-    var n1 = ['snollygoster', 'gadabout', 'codpiece', 'scobberlotcher', 'mumblecrust', 'slug-a-bed'];
-    var n2 = ['ninnyhammer', 'man-swine', 'canker blossom', 'smell-feast', 'clot pole', 'fopdoodle'];
+    var adj = ['ill-breeding', 'unmuzzled', 'eye-offending', 'villainous', 'knicker-stealing', 'horse-bothering', 'blithering', 'cow-handed','peevish','vacant','churlish'];
+    var n1 = ['snollygoster', 'gadabout', 'codpiece', 'scobberlotcher', 'mumblecrust', 'slug-a-bed','jack-a-nape','ruffian','lout'];
+    var n2 = ['ninnyhammer', 'man-swine', 'canker blossom', 'smell-feast', 'clot pole', 'fopdoodle','malt-worm','scullian','miscreant'];
     var plus = [' of a ', ' and a ', ' with the mental faculty of a ', ', as well as a ']
 
     var msg = document.getElementById('msg');
@@ -60,6 +62,23 @@
     var go = document.getElementById('go');
 
     var y = window.scrollY
+
+    var $top = $('#top');
+    console.log($top.height());
+
+    $top.click(function(){
+        if ($top.height()<='50') {
+        $top.animate({
+        height:'200px', 
+        })
+        console.log('hooo')
+        } else {
+        $top.animate({
+        height: '20px', 
+        })
+        console.log('booo')
+    };
+    })
 
     msg.innerHTML = 'The Angry Bard hath had enough of your shit...'
 
@@ -74,7 +93,7 @@
 
         var article = ''
 
-        if (numAdj === 0) {
+        if (numAdj <=2) {
             article = 'an '
         } else {
             article = 'a '
@@ -84,7 +103,7 @@
         console.log(y);
         return output;
     }
-
+    
 
     //multiple generator
     var counter = 0;
