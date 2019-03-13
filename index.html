@@ -79,7 +79,7 @@
         } else {
             article = 'a '
         }
-        msg.innerHTML = '';
+        
         var output = start[numStar] + article + adj[numAdj] + ' ' + n1[numN1] + plus[numPlus] + n2[numN2] + '.';
         console.log(y);
         return output;
@@ -125,7 +125,7 @@
             hit.value = 'unleash wrath';
             msg.innerHTML = 'The Angry Bard hath had enough of your shit...';
             };
-        setTimeout(change,1000);
+        setTimeout(change,700);
         
         $msg3.fadeToggle(500);
         $arrUp.toggleClass('hidden');
@@ -157,7 +157,7 @@ hit.addEventListener('click', function () {
     function visibility() {
         $hit.animate({ opacity: 1 },1000);
     }
-
+    msg.innerHTML = '';
     function typing() {
         if (i < output.length) {
             document.getElementById('msg').innerHTML += output.charAt(i);
