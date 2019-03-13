@@ -148,43 +148,45 @@
     })
 
 
-    //triggers
-    function clear(){msg2.innerHTML = ''};
+//triggers
+function clear(){msg2.innerHTML = ''};
+hit.addEventListener('click', function () {
+    output = generate();
+    var i = 0, text;
+    $hit.animate({ opacity: 0 },500);
 
-    hit.addEventListener('click', function () {
-        output = generate();
-        var i = 0, text;
+    function visibility() {
+        $hit.animate({ opacity: 1 },1000);
+    }
 
-
-
-        function typing() {
-            if (i < output.length) {
-                document.getElementById('msg').innerHTML += output.charAt(i);
-                i++;
-                setTimeout(typing, 50);
-            }
+    function typing() {
+        if (i < output.length) {
+            document.getElementById('msg').innerHTML += output.charAt(i);
+            i++;
+            setTimeout(typing, 50);
         }
-        typing();
-        $hit.fadeToggle(500).delay(3000).fadeToggle(1000);
-        function change(){ hit.value = 'again'}
-        setTimeout(change,1000)
-    })
+    }
+    typing();
+    setTimeout(visibility, 3000);
+    function change(){ hit.value = 'again'}
+    setTimeout(change,1000)
+})
 
-    go.addEventListener('click', function () {
-        $MT.toggleClass('grey');
-        if (msg2.innerHTML!==''){ 
-        console.log('booya')           
-        $('html, body').stop().animate({scrollTop:100}, 700);
-        setTimeout(clear,500);
-        setTimeout(repeat, 600);
-        }else{
-        
-        msg2.innerHTML = '';
-        console.log('shabooya');
-        repeat();
-        }
-        
-    })
+go.addEventListener('click', function () {
+    $MT.toggleClass('grey');
+    if (msg2.innerHTML!==''){ 
+    console.log('booya')           
+    $('html, body').stop().animate({scrollTop:110}, 700);
+    setTimeout(clear,500);
+    setTimeout(repeat, 600);
+    }else{
+    
+    msg2.innerHTML = '';
+    console.log('shabooya');
+    repeat();
+    }
+    
+})
  
 </script>  
 </body>
