@@ -121,11 +121,13 @@
     const $MT = $('#MT');
 
     $barrage.on('click', () => {
-        function change(){ hit.value = 'unleash wrath'};
+        function change(){ 
+            hit.value = 'unleash wrath';
+            msg.innerHTML = 'The Angry Bard hath had enough of your shit...';
+            };
         setTimeout(change,1000);
         
         $msg3.fadeToggle(500);
-        msg.innerHTML = 'The Angry Bard hath had enough of your shit...';
         $arrUp.toggleClass('hidden');
         $arrDwn.toggleClass('hidden');
         $barrOpt.fadeToggle(500);   
