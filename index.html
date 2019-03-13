@@ -99,7 +99,7 @@
             setTimeout(repeat, 1500);
         } else {
             counter = 0;
-            document.getElementById('msg2').innerHTML += '<br>' + '<h6 class="grey">Now be gone with you</h6> <br>'
+            document.getElementById('msg2').innerHTML += '<br>' + '<h6 class="grey">Now be gone with you.</h6> <br>'
             $('html, body').animate({scrollTop: ($(window).scrollTop() +90) + 'px'}, 600);
             return
         }
@@ -121,7 +121,8 @@
     const $MT = $('#MT');
 
     $barrage.on('click', () => {
-        
+        function change(){ hit.value = 'unleash wrath'};
+        setTimeout(change,1000);
         $principal.css('min-height',0).slideToggle(600);
         /*$msg.slideToggle(500);*/
         //$hit.fadeToggle(500);
@@ -139,7 +140,7 @@
         } else if ($msg2.hasClass('hidden')===true){ 
             $('html, body').animate({scrollTop: ($(window).scrollTop() - 480) + 'px'}, 1000);
             console.log('boom');
-            setTimeout(clear,1000);
+            setTimeout(clear,300);
         } else {
             $('html, body').animate({scrollTop: ($(window).scrollTop() - 60) + 'px'}, 500);
             console.log('boob');

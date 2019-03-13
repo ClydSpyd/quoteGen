@@ -79,22 +79,23 @@ label{
   cursor: pointer;
 }
 
+/*#msg{
+  margin-top:15px;
+}*/
+
 #msg2{
     margin-top:0px;
+    margin-bottom:25px;
     min-height: 100px;
     max-height: 1000px;
 }
 
 #go{
     margin-top:15px;
-    margin-bottom: 30px;
 }
 #goMore{
   margin:0 auto 15px auto;
 }
 #multipleResults{
     max-height: 1000px;
-}
-#msg2{
-  margin-bottom:25px;
 }
