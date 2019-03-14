@@ -2,13 +2,13 @@
 //structure: [start] [superlative], most [adjective] [noun][ending]
 
 
-var start = ['This creature before me could be the', 'My darling, you are the', 'Might this be the']
+var start = ['This creature before me could be the', 'My darling, you are the', 'Might this be the','You, my dear, must be','Hark! Stands before me the','Be still my beating heart, here stands the','Behold! Here stands the']
 
 var superlative = ['sweetest','fairest','loveliest','rarest','daintiest']
 
-var adjective = ['precious','darling', 'delicate', 'celestial','artful','silken','heavenly','rosy-cheeked','fair-faced',]
+var adjective = ['precious','darling', 'delicate', 'celestial','artful','silken','heavenly','rosy-cheeked','fair-faced','charming','enchanting']
 
-var noun = ['cuckoo-bud','true-penny','goddess','flower','nymph']
+var noun = ['cuckoo-bud','true-penny','goddess','angel','flower','nymph','beauty','enchantress']
 
 var end = ['ever I hath lain eyes upon', "in all of God's realm", 'in the heavens as well as on Earth','that ever hath graced mine eye','to ever walk this mortal realm']
 
@@ -16,13 +16,14 @@ var complimentOutput = document.getElementById('complimentOutput');
 
 var output='';
 var i = '';
-function gen(arr){
-    return arr[Math.floor(Math.random()*arr.length)];
-}
+
 
 function generate() {
 complimentOutput.innerHTML='';
 i=0;
+function gen(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+}
 output = gen(start) + ' ' + gen(superlative) +', most ' + gen(adjective) + ' ' + gen(noun) +' '+ gen(end);
    if(output.charAt(1)==='i'){
        output+='?';
@@ -33,7 +34,6 @@ output = gen(start) + ' ' + gen(superlative) +', most ' + gen(adjective) + ' ' +
 console.log(output);
 }  
     
-
 function typing() {
     if (i < output.length) {
         complimentOutput.innerHTML += output.charAt(i);
@@ -42,13 +42,12 @@ function typing() {
     }
 }
 document.getElementById('go').addEventListener('click',function(){
-
     generate();
     typing();
 });
 
 
-/*deployment n main page
+/*deployment on main page
 
 var start = ['This creature before me could be the', 'My darling, you are the', 'Might this be the']
 

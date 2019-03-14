@@ -5,19 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-
-    <style>
-    #wrapper{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
+<style>
+body{
+    display: flex;
+    }
+#wrapper{
+    display: inline-flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    height:20px;
     }
 .next{
-    display: block;
+    display:flex;
+    align-items: center;
 }
-
-    </style>
+.compliment{
+    padding-left: 10px;
+    display:flex;
+    align-items: center;
+    height:30px;
+}
+</style>
 </head>
 <body>
 <div id="wrapper">
@@ -25,8 +34,8 @@
     <div class='next'>
         <input type="button" id='go' value="go">
     </div>
-    <div class='next'>
-        <p id="complimentOutput"></p>
+    <div class='compliment'>
+        <p id="complimentOutput">here</p>
     </div>
     <script src="compliment.js"></script>
 
