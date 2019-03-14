@@ -33,9 +33,7 @@ input{
 fieldset{
   border-radius: 5px;
 }
-#hit{
-    margin:10px 0px 10px 0px;
-}
+
 .hidden{
   display: none;
 }
@@ -65,7 +63,7 @@ fieldset{
   min-height:110px;
   max-height:1050px;
   /*border: limegreen 1px solid;*/
-  margin-bottom: 15px;
+  margin: 15px 0 5px 0;
 }
 
 
