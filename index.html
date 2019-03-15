@@ -12,36 +12,55 @@
     <img id='shake'src="img/shake.jpg" alt="" srcset="">
 <div id="principal">
         <h1 id="msg" class='insult'></h1>
-        <input type='button' value='unleash wrath' id='hit'>
+        <input type='button' value='wrath' id='hit'>
+        <input type='button'class='button' value='flattery' id='compliment'>
 </div>
-<div id="multiple">
+
+<h4 id='barrage'>Quick fire<i id='arrDwn'class="fa fa-caret-down"></i><i id='arrUp'class="hidden fa fa-caret-up"></i></h4>
+<div id='multiple' class='hidden'> 
+<div id='barrOpt'>
+    <h1 id='msg3'>Glutton for punishment, ey?</h1>
+    <p>How much wrath dost thou desire?</p>
+    <fieldset>
+        <label for="two">2</label>
+        <input class='radio' type="radio" name="howMany" id="two" value="2" checked='checked'/>
+        <label for="one">3</label>
+        <input class='radio' type="radio" name="howMany" id="three" value="3" />
+        <label for="two">4</label>
+        <input class='radio' type="radio" name="howMany" id="four" value="4"/>
+        <label for="two">5</label>
+        <input class='radio' type="radio" name="howMany" id="five" value="5" />
+    </fieldset>
+    <input type="button" name="go" id="go" value="commence" />
+</div>
     
-        
-        <h4 id='barrage'>Quick fire<i id='arrDwn'class="fa fa-caret-down"></i><i id='arrUp'class="hidden fa fa-caret-up"></i></h4>
-    <h1 id='msg3' class='hidden'>Glutton for punishment, ey?</h1>
-    
-    <div id='barrOpt'class='hidden'>
-        <p>How much wrath dost thou desire?</p>
-        <fieldset>
-            <label for="two">2</label>
-            <input class='radio' type="radio" name="howMany" id="two" value="2" checked='checked'/>
-            <label for="one">3</label>
-            <input class='radio' type="radio" name="howMany" id="three" value="3" />
-            <label for="two">4</label>
-            <input class='radio' type="radio" name="howMany" id="four" value="4" />
-            <label for="two">5</label>
-            <input class='radio' type="radio" name="howMany" id="five" value="5" />
-        </fieldset>
-        <input type="button" name="go" id="go" value="unleash wrath" />
+    <div id="multipleFlattery"class='hidden'> 
+        <h1 id='msg4'>Flattery may get me anywhere</h1>
+        <div id='barrOptFlat'>
+            <p>How many sweet nothings dost thou desire?</p>
+            <fieldset>
+                <label for="two">2</label>
+                <input class='radio' type="radio" name="howManyFlatt" id="two" value="2" checked='checked'/>
+                <label for="one">3</label>
+                <input class='radio' type="radio" name="howManyFlatt" id="three" value="3" />
+                <label for="two">4</label>
+                <input class='radio' type="radio" name="howManyFlatt" id="four" value="4" />
+                <label for="two">5</label>
+                <input class='radio' type="radio" name="howManyFlatt" id="five" value="5" />
+            </fieldset>
+            <input type="button" name="go" id="goMultiComp" value="commence" />
+        </div>
     </div>
+    <div id='barrFlatt'class='hidden'> 
+        <h5><span id='flattBarr'>more flattery<i class="fa fa-caret-down"></i></span>
+            <span id='barrWrath'class='hidden'>wrath<i id='arrUpWrath'class="fa fa-caret-up"></i></span>
+        </h5>
+    </div> 
 </div>
 
-<div id=multipleResults>
-<h2 id='msg2' class='hidden insult'></h2> 
-<h5 id='MT' class='grey'></h5> 
-<input type="button" name="go" id="goMore" value="more" class='hidden'/>     
+<div id=multipleResults class='hidden'>
+<h2 id='msg2' class='hidden insult'></h2>     
 </div>
-
 
 
 <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Nanum+Myeongjo" rel="stylesheet">
@@ -61,7 +80,7 @@
 
     var y = window.scrollY
 
-    msg.innerHTML = 'The Angry Bard hath had enough of your shit...'
+    msg.innerHTML = 'Hear the words of the bard, may they be sweet or may they be sour...';
 
 
     //single generator
@@ -71,10 +90,9 @@
         var numN1 = Math.floor(Math.random() * n1.length);
         var numN2 = Math.floor(Math.random() * n2.length);
         var numPlus = Math.floor(Math.random() * plus.length);
-
+        console.log(numAdj);
         var article = ''
-
-        if (numAdj === 0) {
+        if (numAdj ===0) {
             article = 'an '
         } else {
             article = 'a '
@@ -84,8 +102,6 @@
         console.log(y);
         return output;
     }
-
-
     //multiple generator
     var counter = 0;
    
@@ -103,11 +119,25 @@
             $('html, body').animate({scrollTop: ($(window).scrollTop() +90) + 'px'}, 600);
             return
         }
-
-
     }
+    function repeatComp() {
+
+var howMany = document.querySelector('input[name="howManyFlatt"]:checked').value;
+if (counter < howMany) {
+    document.getElementById('msg2').innerHTML += '<br>' + generateComp() + '<br>';
+    counter++;
+    $('html, body').animate({scrollTop: ($(window).scrollTop() + 80) + 'px'}, 600);
+    setTimeout(repeatComp, 1500);
+} else {
+    counter = 0;
+    document.getElementById('msg2').innerHTML += '<br>' + '<h6 class="grey">Wilst thou be mine?</h6> <br>'
+    $('html, body').animate({scrollTop: ($(window).scrollTop() +90) + 'px'}, 600);
+    return
+}
+}
 
     //multiple controls
+    const $barrWrath=$('#barrWrath');
     const $barrage = $('#barrage');
     const $barrOpt = $('#barrOpt');
     const $arrUp = $('#arrUp');
@@ -117,23 +147,29 @@
     const $msg3 = $('#msg3');
     const $msg4 = $('#msg4');
     const $hit = $('#hit');
+    const $hitComp = $('#compliment');
     const $principal = $('#principal');
-    const $MT = $('#MT');
-
+    const $barrFlatt = $('#barrFlatt');
+    const $multipleFlattery=$('#multipleFlattery');
+    const $multiple = $('#multiple');
+    const $multipleResults=$('#multipleResults');
+    const $flattBarr=$('#flattBarr');
+    const $goMultiComp=$('#goMultiComp');
+    
     $barrage.on('click', () => {
         function change(){ 
-            hit.value = 'unleash wrath';
-            msg.innerHTML = 'The Angry Bard hath had enough of your shit...';
+            hit.value = 'wrath';
+            msg.innerHTML = 'Hear the words of the bard, may they be sweet or may they be sour...';
             };
-        setTimeout(change,700);
-        
-        $msg3.fadeToggle(500);
+        setTimeout(change,400);
         $arrUp.toggleClass('hidden');
         $arrDwn.toggleClass('hidden');
-        $barrOpt.fadeToggle(500);   
+        //$barrOpt.fadeToggle(500); 
+        $multiple.fadeToggle(500);   
         $msg2.fadeToggle(800);
         $barrage.toggleClass('grey');
-                $principal.css('min-height', 0).slideToggle(600);
+        $principal.css('min-height', 0).slideToggle(600);
+        $barrFlatt.fadeToggle(300);
         if ($arrUp.hasClass('hidden')===false){
             $('html, body').animate({scrollTop: ($(window).scrollTop() + 60) + 'px'}, 1000);  
         } else if ($msg2.hasClass('hidden')===true){ 
@@ -145,18 +181,32 @@
             console.log('boob');
         }
     })
+    function visibility() {
+        $hit.animate({ opacity: 1 }, 1000);
+        $hitComp.animate({ opacity: 1 }, 1000);
+    } 
+    function clear(){msg2.innerHTML = ''};
 
+    $barrFlatt.on('click' , ()=>{
+        ///$multipleResults.show();
+        $multipleFlattery.slideToggle();
+        $barrOpt.slideToggle();
+        $barrWrath.toggle();
+        $flattBarr.toggle();
+        $msg2.fadeOut(600).fadeIn();
+        setTimeout(clear,600);
+        $('html, body').stop().animate({scrollTop:110}, 700);
+    })
 
 //triggers
-function clear(){msg2.innerHTML = ''};
+
 hit.addEventListener('click', function () {
     output = generate();
+    var iz = output.length * 50;
+    console.log(iz);
     var i = 0, text;
     $hit.animate({ opacity: 0 },500);
-
-    function visibility() {
-        $hit.animate({ opacity: 1 },1000);
-    }
+    $hitComp.animate({ opacity: 0 }, 500);
     msg.innerHTML = '';
     function typing() {
         if (i < output.length) {
@@ -166,27 +216,76 @@ hit.addEventListener('click', function () {
         }
     }
     typing();
-    setTimeout(visibility, 3000);
-    function change(){ hit.value = 'again'}
-    setTimeout(change,1000)
+    setTimeout(visibility, iz);
+    
+    /*function change(){ hit.value = 'again'}
+    setTimeout(change,1000)*/
 })
+    var startComp = ['This creature before me may be the', 'My darling, you are the', 'Might this be the', 'You, my dear, must be the', 'Hark! Stands before me the', 'Still my heart, here stands the', 'Behold! Here stands the']
+    var superlative = ['sweetest', 'fairest', 'loveliest', 'rarest', 'daintiest']
+    var adjective = ['precious', 'darling', 'delicate', 'celestial', 'artful', 'silken', 'heavenly', 'rosy-cheeked', 'fair-faced', 'charming', 'enchanting']
+    var noun = ['cuckoo-bud', 'true-penny', 'goddess', 'angel', 'flower', 'nymph', 'beauty', 'enchantress']
+    var endComp = ['ever I hath lain eyes upon', "in all of God's realm", 'in all of the heavens and Earth', 'that ever hath graced mine eye', 'to ever walk this mortal realm']
+    var output = '';
+    var i = '';
+    function generateComp() {
+        msg.innerHTML = '';
+        i = 0;
+        function gen(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+        output = gen(startComp) + ' ' + gen(superlative) + ', most ' + gen(adjective) + ' ' + gen(noun) + ' ' + gen(endComp);
+        if (output.charAt(1) === 'i') {
+            output += '?';
+            console.log('yo');
+        } else {
+            output += '.';
+        }
+        return output
+    }
+    
+    function typing() {
+        if (i < output.length) {
+            msg.innerHTML += output.charAt(i);
+            i++;
+            setTimeout(typing, 50);
+        }
+    }
 
 go.addEventListener('click', function () {
-    $MT.toggleClass('grey');
     if (msg2.innerHTML!==''){ 
     console.log('booya')           
     $('html, body').stop().animate({scrollTop:110}, 700);
     setTimeout(clear,500);
     setTimeout(repeat, 600);
     }else{
-    
+    $multipleResults.fadeIn();
     msg2.innerHTML = '';
     console.log('shabooya');
     repeat();
-    }
-    
+    }  
 })
- 
+$goMultiComp.on('click', function () {
+    if (msg2.innerHTML!==''){          
+    $('html, body').stop().animate({scrollTop:110}, 700);
+    setTimeout(clear,500);
+    setTimeout(repeatComp, 600);
+    }else{
+    $multipleResults.fadeIn();
+    msg2.innerHTML = '';
+    console.log('shabooya');
+    repeatComp();
+    }  
+})
+
+$hitComp.on('click', function () {
+    $hit.animate({ opacity: 0 }, 500);
+    $hitComp.animate({ opacity: 0 }, 500);
+    generateComp();
+    typing();
+    var iz = output.length*50;
+    setTimeout(visibility, iz);
+});
 </script>  
 </body>
 </html>
