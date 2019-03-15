@@ -30,6 +30,7 @@ input{
 }
 fieldset{
   border-radius: 5px;
+  padding:5px 40px 5px 40px;
 }
 #hit{
     margin:10px 0px 10px 0px;
@@ -75,7 +76,7 @@ label{
 }
 
 
-#barrage{
+#barrage, #barrFlatt{
   cursor: pointer;
 }
 
