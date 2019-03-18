@@ -21,7 +21,7 @@ h3{
 h4{
     margin:0;
 }
-h6{
+h5{
   margin:5px 0 5px 0;
 }
 input{
@@ -52,8 +52,8 @@ fieldset{
 }
 
 #shake{
-  width:450px;
-  margin-top:55px;
+  width:400px;
+  margin-top:35px;
 }
 
 #principal{
@@ -75,13 +75,15 @@ label{
   vertical-align: middle
 }
 
-#barrOpt{
+#barrOpt, #barrOptFlat{
+  /*border:red 1px solid;*/
   display:flex;
   flex-direction: column;
   align-items: center;
-	justify-content: space-around;
+	justify-content: center;
 }
-#radios{
+#radios, #radios2 {
+  text-align: center;
   width:300px;
 }
 

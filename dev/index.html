@@ -12,8 +12,8 @@
     <img id='shake'src="img/shake.jpg" alt="" srcset="">
 <div id="principal">
         <h1 id="msg" class='insult'></h1>
-        <input type='button' value='wrath' id='hit'>
-        <input type='button'class='button' value='flattery' id='compliment'>
+        <input type='button' class='button' value='Wrath' id='hit'>
+        <input type='button'class='button' value='Praise' id='compliment'>
 </div>
 
 <h4 id='barrage'>Quick fire<i id='arrDwn'class="fa fa-caret-down"></i><i id='arrUp'class="hidden fa fa-caret-up"></i></h4>
@@ -36,21 +36,22 @@
     <input type="button" name="go" id="go" value="commence" />
 </div>
     
-    <div id="multipleFlattery"class='hidden'> 
-        <h1 id='msg4'>Thirsty for praise, are we?</h1>
+    <div id="multipleFlattery" class='hidden'> 
         <div id='barrOptFlat'>
-            <p>How many sweet nothings dost thou seek?</p>
-            <div id="radios2"><fieldset>
-            <label for="two">2</label>
-            <input class='radio' type="radio" name="howManyFlatt" id="two" value="2" checked='checked'/>
-            <label for="one">3</label>
-            <input class='radio' type="radio" name="howManyFlatt" id="three" value="3" />
-            <label for="two">4</label>
-            <input class='radio' type="radio" name="howManyFlatt" id="four" value="4" />
-            <label for="two">5</label>
-            <input class='radio' type="radio" name="howManyFlatt" id="five" value="5" />
-            </fieldset></div>
-            <input type="button" name="go" id="goMultiComp" value="commence" />
+        <h1 id='msg4'>Thirsty for praise, are we?</h1>
+        <h4 id="multiCompliment" class="insult "></h4>
+        <p>How many sweet nothings dost thou seek?</p>
+        <div id="radios2"><fieldset>
+        <label for="two">2</label>
+        <input class='radio' type="radio" name="howManyFlatt" id="two" value="2" checked='checked'/>
+        <label for="one">3</label>
+        <input class='radio' type="radio" name="howManyFlatt" id="three" value="3" />
+        <label for="two">4</label>
+        <input class='radio' type="radio" name="howManyFlatt" id="four" value="4" />
+        <label for="two">5</label>
+        <input class='radio' type="radio" name="howManyFlatt" id="five" value="5" />
+        </fieldset></div>
+        <input type="button" name="go" id="goMultiComp" value="commence" />
         </div>
     </div>
     <div id='barrFlatt'class='hidden'> 
@@ -79,10 +80,11 @@
     var msg = document.getElementById('msg');
     var hit = document.getElementById('hit');
     var go = document.getElementById('go');
-
+    let multiCompliment= document.getElementById('multiCompliment');
+    let multiInsult=document.getElementById('multiInsult');
     var y = window.scrollY
 
-    msg.innerHTML = 'The bard scorns and...';
+    msg.innerHTML = 'Dost thou desire my wrath or my praise?';
 
 
     //single generator
@@ -117,7 +119,7 @@
             setTimeout(repeat, 1500);
         } else {
             counter = 0;
-            document.getElementById('multiInsult').innerHTML += '<br>' + "<h6 class='grey'>Now be gone with you, lest yee seeks a further verbal thrashing.</h6>"
+            document.getElementById('multiInsult').innerHTML += '<br>' + "<h5 class='grey'>Now be gone with you, lest yee seeks a further verbal thrashing.</h5>"
             $('html, body').animate({scrollTop: ($(window).scrollTop() +90) + 'px'}, 600);
             return
         }
@@ -126,13 +128,13 @@
 
 var howMany = document.querySelector('input[name="howManyFlatt"]:checked').value;
 if (counter < howMany) {
-    document.getElementById('msg2').innerHTML += '<br>' + generateComp() + '<br>';
+    document.getElementById('multiCompliment').innerHTML += '<br>' + generateComp() + '<br>';
     counter++;
     $('html, body').animate({scrollTop: ($(window).scrollTop() + 80) + 'px'}, 600);
     setTimeout(repeatComp, 1500);
 } else {
     counter = 0;
-    document.getElementById('msg2').innerHTML += '<br>' + '<h6 class="grey">Wilst thou be mine?</h6>'
+    document.getElementById('multiCompliment').innerHTML += '<br>' + '<h5 class="grey">Wilst thou be mine?</h5>'
     $('html, body').animate({scrollTop: ($(window).scrollTop() +90) + 'px'}, 600);
     return
 }
@@ -147,6 +149,7 @@ if (counter < howMany) {
     const $arrDwn = $('#arrDwn');
     const $msg = $('#msg');
     const $msg2 = $('#msg2');
+    const $multiCompliment = $('#multiCompliment')
     const $msg3 = $('#msg3');
     const $msg4 = $('#msg4');
     const $hit = $('#hit');
@@ -158,29 +161,27 @@ if (counter < howMany) {
     const $multipleResults=$('#multipleResults');
     const $flattBarr=$('#flattBarr');
     const $goMultiComp=$('#goMultiComp');
+    function clear(){ multiCompliment.innerHTML = ''; multiInsult.innerHTML=''};
    //multiple controls 
+   
     $barrage.on('click', () => {
         function change(){ 
             hit.value = 'wrath';
-            msg.innerHTML = 'The bard scorns and the bard praises...';
+            msg.innerHTML = 'Dost thou desire my wrath or my praise?';
             };
-        setTimeout(change,400);
+        setTimeout(change,700);
         $arrUp.toggleClass('hidden');
-        $arrDwn.toggleClass('hidden');
-        //$barrOpt.fadeToggle(500); 
+        $arrDwn.toggleClass('hidden'); 
         $multiple.fadeToggle(500);   
-        $msg2.fadeToggle(800);
         $barrage.toggleClass('grey');
         $principal.css('min-height', 0).slideToggle(600);
         $barrFlatt.fadeToggle(300);
+        setTimeout(clear, 1400);
         if ($arrUp.hasClass('hidden')===false){
-            $('html, body').animate({scrollTop: ($(window).scrollTop() + 60) + 'px'}, 1000);  
-        } else if ($msg2.hasClass('hidden')===true){ 
-            $('html, body').animate({scrollTop: ($(window).scrollTop() - 480) + 'px'}, 1000);
-            console.log('boom');
-            setTimeout(clear,300);
+            console.log('I am here')
+            $('html, body').animate({ scrollTop: 80 }, 700);
         } else {
-            $('html, body').animate({scrollTop: ($(window).scrollTop() - 60) + 'px'}, 500);
+            $('html, body').animate({ scrollTop: 0 }, 400);
             console.log('boob');
         }
     })
@@ -188,7 +189,7 @@ if (counter < howMany) {
         $hit.animate({ opacity: 1 }, 1000);
         $hitComp.animate({ opacity: 1 }, 1000);
     } 
-    function clear(){msg2.innerHTML = ''};
+    
 
     $barrFlatt.on('click' , ()=>{
         ///$multipleResults.show();
@@ -277,17 +278,12 @@ go.addEventListener('click', function () {
     repeat();
     } */ 
 })
-$goMultiComp.on('click', function () {
-    if (msg2.innerHTML!==''){          
+$goMultiComp.on('click', function () {     
+    multiCompliment.innerHTML = ''; 
     $('html, body').stop().animate({scrollTop:110}, 700);
-    setTimeout(clear,500);
-    setTimeout(repeatComp, 600);
-    }else{
-    $multipleResults.fadeIn();
-    msg2.innerHTML = '';
-    console.log('shabooya');
     repeatComp();
-    }  
+    console.log('blooblah');
+
 })
 
 $hitComp.on('click', function () {
