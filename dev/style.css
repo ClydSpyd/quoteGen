@@ -75,6 +75,15 @@ label{
   vertical-align: middle
 }
 
+#barrOpt{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+	justify-content: space-around;
+}
+#radios{
+  width:300px;
+}
 
 #barrage, #barrFlatt{
   cursor: pointer;
@@ -91,7 +100,7 @@ label{
     max-height: 1000px;
 }
 
-#go{
+#go, #goMultiComp{
     margin-top:15px;
 }
 #goMore{
