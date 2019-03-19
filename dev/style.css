@@ -1,6 +1,6 @@
 body {
   background: #ffffff;
-  padding-top: 60px;
+  padding-top: 30px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -59,7 +59,7 @@ fieldset{
 }
 #shake{
   width:400px;
-  margin-top:5px;
+  margin-top:10px;
 }
 
 #principal{
