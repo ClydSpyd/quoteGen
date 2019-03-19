@@ -21,8 +21,8 @@ h3{
 h4{
     margin:0;
 }
-h6{
-  margin:10px;
+h5{
+  margin:5px 0 5px 0;
 }
 input{
   cursor: pointer;
@@ -52,8 +52,8 @@ fieldset{
 }
 
 #shake{
-  width:450px;
-  margin-top:55px;
+  width:400px;
+  margin-top:35px;
 }
 
 #principal{
@@ -75,6 +75,17 @@ label{
   vertical-align: middle
 }
 
+#barrOpt, #barrOptFlat{
+  /*border:red 1px solid;*/
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+	justify-content: center;
+}
+#radios, #radios2 {
+  text-align: center;
+  width:300px;
+}
 
 #barrage, #barrFlatt{
   cursor: pointer;
@@ -91,7 +102,7 @@ label{
     max-height: 1000px;
 }
 
-#go{
+#go, #goMultiComp{
     margin-top:15px;
 }
 #goMore{

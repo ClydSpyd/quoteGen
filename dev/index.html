@@ -7,14 +7,18 @@
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 </head>
 <body>
-    <!--<h5>The bard is not amused</h5>-->
-
+    <h4 class=''>-The Bard Will Address You Now-</h4>
     <img id='shake'src="img/shake.jpg" alt="" srcset="">
-<div id="principal">
-        <h1 id="msg" class='insult'></h1>
-        <input type='button' class='button' value='wrath' id='hit'>
-        <input type='button'class='button' value='praise' id='compliment'>
-</div>
+    <div id="principal">
+    <h1 id="msg" class='insult'></h1>
+    <div class="flex" id='buttonsCont'>
+        <fieldset id='buttons'>  
+            <legend>select</legend>   
+                <input type='button' value='wrath' id='hit'>
+                <input type='button'class='button' value='flattery' id='compliment'>
+        </fieldset>
+    </div>
+    </div>
 
 <h4 id='barrage'>Quick fire<i id='arrDwn'class="fa fa-caret-down"></i><i id='arrUp'class="hidden fa fa-caret-up"></i></h4>
 
@@ -82,65 +86,7 @@
     var go = document.getElementById('go');
     let multiCompliment= document.getElementById('multiCompliment');
     let multiInsult=document.getElementById('multiInsult');
-    var y = window.scrollY
 
-    msg.innerHTML = 'Dost thou desire my wrath or my praise?';
-
-
-    //single generator
-    function generate() {
-        var numStar = Math.floor(Math.random() * start.length);
-        var numAdj = Math.floor(Math.random() * adj.length);
-        var numN1 = Math.floor(Math.random() * n1.length);
-        var numN2 = Math.floor(Math.random() * n2.length);
-        var numPlus = Math.floor(Math.random() * plus.length);
-        console.log(numAdj);
-        var article = ''
-        if (numAdj ===0) {
-            article = 'an '
-        } else {
-            article = 'a '
-        }
-        
-        var output = start[numStar] + article + adj[numAdj] + ' ' + n1[numN1] + plus[numPlus] + n2[numN2] + '.';
-        console.log(y);
-        return output;
-    }
-    //multiple generator
-    var counter = 0;
-   
-    function repeat() {
-
-        var howMany = document.querySelector('input[name="howMany"]:checked').value;
-        if (counter < howMany) {
-            document.getElementById('multiInsult').innerHTML += '<br>' + generate() + '<br>';
-            counter++;
-            $('html, body').animate({scrollTop: ($(window).scrollTop() + 80) + 'px'}, 600);
-            setTimeout(repeat, 1500);
-        } else {
-            counter = 0;
-            document.getElementById('multiInsult').innerHTML += '<br>' + "<h5 class='grey'>Now be gone with you, lest yee seeks a further verbal thrashing.</h5>"
-            $('html, body').animate({scrollTop: ($(window).scrollTop() +90) + 'px'}, 600);
-            return
-        }
-    }
-    function repeatComp() {
-
-var howMany = document.querySelector('input[name="howManyFlatt"]:checked').value;
-if (counter < howMany) {
-    document.getElementById('multiCompliment').innerHTML += '<br>' + generateComp() + '<br>';
-    counter++;
-    $('html, body').animate({scrollTop: ($(window).scrollTop() + 80) + 'px'}, 600);
-    setTimeout(repeatComp, 1500);
-} else {
-    counter = 0;
-    document.getElementById('multiCompliment').innerHTML += '<br>' + '<h5 class="grey">Wilst thou be mine?</h5>'
-    $('html, body').animate({scrollTop: ($(window).scrollTop() +90) + 'px'}, 600);
-    return
-}
-}
-
-    
     var $multiInsult = $('#multiInsult')
     const $barrWrath=$('#barrWrath');
     const $barrage = $('#barrage');
@@ -161,8 +107,69 @@ if (counter < howMany) {
     const $multipleResults=$('#multipleResults');
     const $flattBarr=$('#flattBarr');
     const $goMultiComp=$('#goMultiComp');
+    const $buttonsCont=$('#buttonsCont');
+
+    msg.innerHTML = 'Dost thou desire my wrath or my praise?';
+
+
+//single generator
+function generate() {
+    var numStar = Math.floor(Math.random() * start.length);
+    var numAdj = Math.floor(Math.random() * adj.length);
+    var numN1 = Math.floor(Math.random() * n1.length);
+    var numN2 = Math.floor(Math.random() * n2.length);
+    var numPlus = Math.floor(Math.random() * plus.length);
+    console.log(numAdj);
+    var article = ''
+    if (numAdj ===0) {
+        article = 'an '
+    } else {
+        article = 'a '
+    }
+    
+    var output = start[numStar] + article + adj[numAdj] + ' ' + n1[numN1] + plus[numPlus] + n2[numN2] + '.';
+    return output;
+}
+
+//multiple generator
+
+    //----insult----
+var counter = 0;
+
+function repeat() {
+
+    var howMany = document.querySelector('input[name="howMany"]:checked').value;
+    if (counter < howMany) {
+        document.getElementById('multiInsult').innerHTML += '<br>' + generate() + '<br>';
+        counter++;
+        $('html, body').animate({scrollTop: ($(window).scrollTop() + 80) + 'px'}, 600);
+        setTimeout(repeat, 1500);
+    } else {
+        counter = 0;
+        document.getElementById('multiInsult').innerHTML += '<br>' + "<h5 class='grey' id='finalPoint'>Now be gone with you, lest yee seeks a further verbal thrashing.</h5>"
+        $('html, body').animate({scrollTop: ($(window).scrollTop() +90) + 'px'}, 600);
+        return}
+}
+    //----compliment----
+function repeatComp() {
+    var howMany = document.querySelector('input[name="howManyFlatt"]:checked').value;
+    if (counter < howMany) {
+        document.getElementById('multiCompliment').innerHTML += '<br>' + generateComp() + '<br>';
+        counter++;
+        $('html, body').animate({scrollTop: ($(window).scrollTop() + 80) + 'px'}, 600);
+        setTimeout(repeatComp, 1500);
+    } else {
+        counter = 0;
+        document.getElementById('multiCompliment').innerHTML += '<br>' + '<h5 class="grey" id="finalPoint2">Wilst thou be mine?</h5>'
+        $('html, body').animate({scrollTop: ($(window).scrollTop() +90) + 'px'}, 600);
+        return}
+    }
+
+    
+
     function clear(){ multiCompliment.innerHTML = ''; multiInsult.innerHTML=''};
-   //multiple controls 
+   
+    //multiple controls 
    
     $barrage.on('click', () => {
         function change(){ 
@@ -186,8 +193,9 @@ if (counter < howMany) {
         }
     })
     function visibility() {
-        $hit.animate({ opacity: 1 }, 1000);
-        $hitComp.animate({ opacity: 1 }, 1000);
+       // $hit.animate({ opacity: 1 }, 1000);
+        //$hitComp.animate({ opacity: 1 }, 1000);
+        $buttonsCont.animate({ opacity: 1 }, 1000);
     } 
     
 
@@ -215,8 +223,9 @@ hit.addEventListener('click', function () {
     var iz = output.length * 50;
     console.log(iz);
     var i = 0, text;
-    $hit.animate({ opacity: 0 },500);
-    $hitComp.animate({ opacity: 0 }, 500);
+    $buttonsCont.animate({ opacity: 0 }, 1000);
+    //$hit.animate({ opacity: 0 },500);
+    //$hitComp.animate({ opacity: 0 }, 500);
     msg.innerHTML = '';
     function typing() {
         if (i < output.length) {
@@ -287,8 +296,9 @@ $goMultiComp.on('click', function () {
 })
 
 $hitComp.on('click', function () {
-    $hit.animate({ opacity: 0 }, 500);
-    $hitComp.animate({ opacity: 0 }, 500);
+    $buttonsCont.animate({ opacity: 0 }, 1000);
+    //$hit.animate({ opacity: 0 }, 500);
+    //$hitComp.animate({ opacity: 0 }, 500);
     generateComp();
     typing();
     var iz = output.length*50;

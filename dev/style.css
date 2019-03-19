@@ -1,6 +1,6 @@
 body {
   background: #ffffff;
-  margin: 0;
+  padding-top: 60px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -9,7 +9,9 @@ body {
   font-family: 'Cormorant Garamond', serif;
 
 }
-
+#finalPoint, #finalPoint2{
+  margin:5px;
+}
 h1 {
   color: #494848;
   font-weight: 100;
@@ -21,7 +23,10 @@ h3{
 h4{
     margin:0;
 }
-h5{
+h{
+  margin:5px;
+}
+h6{
   margin:5px 0 5px 0;
 }
 input{
@@ -33,7 +38,7 @@ fieldset{
   padding:5px 40px 5px 40px;
 }
 #hit{
-    margin:10px 0px 10px 0px;
+    margin:5px 0px 10px 0px;
 }
 .hidden{
   display: none;
@@ -47,13 +52,14 @@ fieldset{
 
 
 .insult{
-    font-family: 'Nanum Myeongjo', serif;
-
+  font-family: 'Nanum Myeongjo', serif;
 }
-
+.topTitle{
+  font-weight: 100;
+}
 #shake{
   width:400px;
-  margin-top:35px;
+  margin-top:5px;
 }
 
 #principal{
@@ -74,16 +80,22 @@ label{
   font-size: 25px;
   vertical-align: middle
 }
-
-#barrOpt, #barrOptFlat{
-  /*border:red 1px solid;*/
+.flex{
   display:flex;
   flex-direction: column;
   align-items: center;
-	justify-content: center;
+	justify-content: space-around;
 }
-#radios, #radios2 {
-  text-align: center;
+#buttons{
+  width:200px;
+}
+#barrOpt, #barrOptFlat{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+	justify-content: space-around;
+}
+#radios, #radios2{
   width:300px;
 }
 
