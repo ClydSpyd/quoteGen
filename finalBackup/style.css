@@ -1,0 +1,125 @@
+body {
+  background: #ffffff;
+  padding-top: 60px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin-top:10px;
+  font-family: 'Cormorant Garamond', serif;
+
+}
+#finalPoint, #finalPoint2{
+  margin:5px;
+}
+h1 {
+  color: #494848;
+  font-weight: 100;
+  margin:10px;
+}
+h3{
+    color: #9e9e9e;
+}
+h4{
+    margin:0;
+}
+h{
+  margin:5px;
+}
+h6{
+  margin:5px 0 5px 0;
+}
+input{
+  cursor: pointer;
+  border-radius: 5px;
+}
+fieldset{
+  border-radius: 5px;
+  padding:5px 40px 5px 40px;
+}
+#hit{
+    margin:5px 0px 10px 0px;
+}
+.hidden{
+  display: none;
+}
+.pad{
+    padding-top:20px;
+}
+.grey{
+    color: #9e9e9e;
+}
+
+
+.insult{
+  font-family: 'Nanum Myeongjo', serif;
+}
+.topTitle{
+  font-weight: 100;
+}
+#shake{
+  width:400px;
+  margin-top:5px;
+}
+
+#principal{
+  min-height:110px;
+  max-height:1050px;
+  /*border: limegreen 1px solid;*/
+  margin-bottom: 15px;
+}
+
+
+label{
+  margin-left: 15px;
+  vertical-align: middle;
+}
+
+.fa-caret-down, .fa-caret-up{
+  margin-left: 6px;
+  font-size: 25px;
+  vertical-align: middle
+}
+.flex{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+	justify-content: space-around;
+}
+#buttons{
+  width:200px;
+}
+#barrOpt, #barrOptFlat{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+	justify-content: space-around;
+}
+#radios, #radios2{
+  width:300px;
+}
+
+#barrage, #barrFlatt{
+  cursor: pointer;
+}
+
+/*#msg{
+  margin-top:15px;
+}*/
+
+#msg2{
+    margin-top:0px;
+    margin-bottom:25px;
+    min-height: 100px;
+    max-height: 1000px;
+}
+
+#go, #goMultiComp{
+    margin-top:15px;
+}
+#goMore{
+  margin:0 auto 15px auto;
+}
+#multipleResults{
+    max-height: 1000px;
+}

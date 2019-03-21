@@ -28,14 +28,18 @@
     const $goMultiComp=$('#goMultiComp');
     const $buttonsCont=$('#buttonsCont');
 
-    var iz ='';
-
     msg.innerHTML = 'Dost thou desire my wrath or my praise?';
 
     function clear(){ multiCompliment.innerHTML = ''; multiInsult.innerHTML=''};
 
     //----type animation function-----//
-   
+    function typing() {
+        if (i < output.length) {
+            msg.innerHTML += output.charAt(i);
+            i++;
+            setTimeout(typing, 50);
+        }
+    }
 
 
 //////////SINGLE GENS//////////////////
@@ -76,13 +80,6 @@ function generate() {
         msg.innerHTML = '';
         typing();
         setTimeout(visibility, iz);
-        function typing() {
-            if (i < output.length) {
-                msg.innerHTML += output.charAt(i);
-                i++;
-                setTimeout(typing, 50);
-            }
-        }
     
     })
 
@@ -109,28 +106,16 @@ function generate() {
         }
         return output
     }
-    typing();
-    
-        setTimeout(visibility, iz);
-        
-        function typing() {
-            var iz = output.length * 50;
-            if (i < output.length) {
-                msg.innerHTML += output.charAt(i);
-                i++;
-                setTimeout(typing, 50);
-            }
-        }
 
-        $hitComp.on('click', function () {
-            $buttonsCont.animate({ opacity: 0 }, 1000);
-            //$hit.animate({ opacity: 0 }, 500);
-            //$hitComp.animate({ opacity: 0 }, 500);
-            generateComp();
-            typing();
-            var iz = output.length*50;
-            setTimeout(visibility, iz);
-        });  
+    //triger compliment//
+
+    $hitComp.on('click', function () {
+        $buttonsCont.animate({ opacity: 0 }, 1000);
+        generateComp();
+        typing();
+        var iz = output.length*50;
+        setTimeout(visibility, iz);
+    });
 
 
 
