@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>quoteGen</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">  
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+</head>
+<body>
+    <h4 class=''>-The Bard Will Address You Now-</h4>
+    <img id='shake'src="img/shake.jpg" alt="" srcset="">
+    <div id="principal">
+    <h1 id="msg" class='insult'></h1>
+    <div class="flex" id='buttonsCont'>
+        <fieldset id='buttons'>  
+            <legend>select</legend>   
+                <input type='button' value='wrath' id='hit'>
+                <input type='button'class='button' value='praise' id='compliment'>
+        </fieldset>
+    </div>
+    </div>
+
+<h4 id='barrage'>Quick fire<i id='arrDwn'class="fa fa-caret-down"></i><i id='arrUp'class="hidden fa fa-caret-up"></i></h4>
+
+<div id='multiple' class='hidden'> 
+<div id='barrOpt'>
+    <h1 id='msg3'>Glutton for punishment, ey?</h1>
+    <h4 id="multiInsult" class="insult hidden"></h4>
+    <p>How much wrath dost thou desire?</p>
+    <div id="radios"><fieldset>
+    <label for="two">2</label>
+    <input class='radio' type="radio" name="howMany" id="two" value="2" checked='checked'/>
+    <label for="one">3</label>
+    <input class='radio' type="radio" name="howMany" id="three" value="3" />
+    <label for="two">4</label>
+    <input class='radio' type="radio" name="howMany" id="four" value="4"/>
+    <label for="two">5</label>
+    <input class='radio' type="radio" name="howMany" id="five" value="5" />
+    </fieldset></div>
+    <input type="button" name="go" id="go" value="commence" />
+</div>
+    
+    <div id="multipleFlattery" class='hidden'> 
+        <div id='barrOptFlat'>
+        <h1 id='msg4'>Thirsty for praise, are we?</h1>
+        <h4 id="multiCompliment" class="insult "></h4>
+        <p>How many sweet nothings dost thou seek?</p>
+        <div id="radios2"><fieldset>
+        <label for="two">2</label>
+        <input class='radio' type="radio" name="howManyFlatt" id="two" value="2" checked='checked'/>
+        <label for="one">3</label>
+        <input class='radio' type="radio" name="howManyFlatt" id="three" value="3" />
+        <label for="two">4</label>
+        <input class='radio' type="radio" name="howManyFlatt" id="four" value="4" />
+        <label for="two">5</label>
+        <input class='radio' type="radio" name="howManyFlatt" id="five" value="5" />
+        </fieldset></div>
+        <input type="button" name="go" id="goMultiComp" value="commence" />
+        </div>
+    </div>
+    <div id='barrFlatt'class='hidden'> 
+        <h5><span id='flattBarr'>more flattery<i class="fa fa-caret-down"></i></span>
+            <span id='barrWrath'class='hidden'>wrath<i id='arrUpWrath'class="fa fa-caret-up"></i></span>
+        </h5>
+    </div> 
+</div>
+
+<div id=multipleResults class='hidden'>
+<h2 id='msg2' class='hidden insult'></h2>     
+</div>
+
+
+<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Nanum+Myeongjo" rel="stylesheet">
+<script src="jquery-3.3.1.min.js"></script>
+ 
+
+ <script src="main.js"></script>
+</body>
+</html>
