@@ -222,7 +222,7 @@ function repeatComp() {
        }
         $barrWrath.toggle();
         $flattBarr.toggle();
-       setTimeout(clearInsults,1500);
+       setTimeout(clear,1500);
         
     })
 
