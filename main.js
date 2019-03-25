@@ -75,7 +75,7 @@ function generate() {
         var iz = output.length * 50;
         console.log(iz);
         var i = 0, text;
-        $buttonsCont.animate({ opacity: 0 }, 300);
+        $buttonsCont.animate({ opacity: 0 }, 500);
         msg.innerHTML = '';
         typing();
         setTimeout(visibility, iz);
@@ -126,7 +126,7 @@ function generate() {
         }
 
         $hitComp.on('click', function () {
-            $buttonsCont.animate({ opacity: 0 }, 1000);
+            $buttonsCont.animate({ opacity: 0 }, 500);
             document.getElementById('compliment').disabled = true;
             document.getElementById('hit').disabled = true;
             generateComp();
