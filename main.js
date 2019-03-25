@@ -68,11 +68,14 @@ function generate() {
 
     //trigger insult//
     hit.addEventListener('click', function () {
+
+        document.getElementById('hit').disabled=true;
+        document.getElementById('compliment').disabled = true;
         output = generate();
         var iz = output.length * 50;
         console.log(iz);
         var i = 0, text;
-        $buttonsCont.animate({ opacity: 0 }, 1000);
+        $buttonsCont.animate({ opacity: 0 }, 300);
         msg.innerHTML = '';
         typing();
         setTimeout(visibility, iz);
@@ -83,7 +86,7 @@ function generate() {
                 setTimeout(typing, 50);
             }
         }
-    
+        
     })
 
     //--------compliment---------//
@@ -124,8 +127,8 @@ function generate() {
 
         $hitComp.on('click', function () {
             $buttonsCont.animate({ opacity: 0 }, 1000);
-            //$hit.animate({ opacity: 0 }, 500);
-            //$hitComp.animate({ opacity: 0 }, 500);
+            document.getElementById('compliment').disabled = true;
+            document.getElementById('hit').disabled = true;
             generateComp();
             typing();
             var iz = output.length*50;
@@ -210,6 +213,8 @@ function repeatComp() {
     })
     function visibility() {
         $buttonsCont.animate({ opacity: 1 }, 1000);
+        document.getElementById('hit').disabled = false;
+        document.getElementById('compliment').disabled = false;
     } 
     
     //-----move from wrath to flattery--------//
